@@ -1,6 +1,6 @@
 # SkillConnect
 
-Private SIH 2026 hackathon prototype based on the supplied Academia–Industry Collaboration problem statement and Skill Connect presentation.
+Public SIH 2026 hackathon prototype based on the supplied Academia–Industry Collaboration problem statement and Skill Connect presentation.
 
 ## Run
 
@@ -22,7 +22,7 @@ Matching is deterministic: unique matched required skills divided by unique requ
 
 ## Honest prototype boundaries
 
-The deployed site is private and authenticated by Sites. The portal selector demonstrates roles within each viewer's isolated sandbox. It is not production role assignment, independent student/company registration, or a shared multi-organization recruitment system. All actions remain scoped to that authenticated viewer, with additional role-action checks for the selected demo workflow.
+The deployed site is public and does not require ChatGPT sign-in. Visitors receive an unguessable 256-bit guest cookie (HttpOnly, SameSite=Lax, Secure on HTTPS, 30-day lifetime). Each guest has separate server-stored records. Clearing or losing the cookie starts a new workspace; guest workspaces are not account recovery or cross-device accounts. Previously viewer or guest sessions retain their original isolated records. The portal selector demonstrates roles within each viewer's isolated sandbox. It is not production role assignment, independent student/company registration, or a shared multi-organization recruitment system. All actions remain scoped to that viewer or guest session, with additional role-action checks for the selected demo workflow.
 
 Sample names, companies, listings and compensation are fictional. Academic institutions are profile fields rather than managed organization records. Portfolio verification demonstrates manual approval inside the demo; it is not independent credential verification. Learning completion is self-reported. PDF export uses browser printing. The 12-item diagnostic is not a validated aptitude instrument.
 

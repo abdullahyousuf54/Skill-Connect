@@ -9,12 +9,25 @@ import {
   database,
 } from '@/lib/server';
 import { careers, skills, roles, questions, matchSkills } from '@/lib/domain';
+import { createGuest } from '@/lib/guest';
 export async function GET(req: Request) {
   try {
-    const owner = ownerOf(req);
+    let owner: string;
+    let cookie: string | undefined;
+    try {
+      owner = ownerOf(req);
+    } catch {
+      const guest = createGuest(req);
+      owner = guest.owner;
+      cookie = guest.cookie;
+    }
     await initialize();
     return Response.json(await state(owner), {
-      headers: { 'Cache-Control': 'no-store' },
+      headers: {
+        'Cache-Control': 'private, no-store',
+        Vary: 'Cookie',
+        ...(cookie ? { 'Set-Cookie': cookie } : {}),
+      },
     });
   } catch (e) {
     return Response.json({ error: (e as Error).message }, { status: 401 });

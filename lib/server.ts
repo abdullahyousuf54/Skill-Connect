@@ -1,5 +1,6 @@
 import { env } from 'cloudflare:workers';
 import { defaultProfile, opportunities, programs } from './domain';
+import { guestOwner } from './guest';
 export function ownerOf(req: Request) {
   if (import.meta.env.DEV) {
     const testOwner = req.headers.get('x-skillconnect-test-owner');
@@ -8,8 +9,9 @@ export function ownerOf(req: Request) {
   }
   const owner = req.headers.get('oai-authenticated-user-id');
   if (owner) return owner;
-  if (import.meta.env.DEV) return 'local-demo';
-  throw new Error('Sign in to access your demo workspace.');
+  const guest = guestOwner(req);
+  if (guest) return guest;
+  throw new Error('Open the portal first to start your guest workspace.');
 }
 export function database() {
   return env.DB;
@@ -74,7 +76,7 @@ export async function state(owner: string) {
       Faculty: profiles.find((p) => p.id === 'Faculty') || {
         ...defaultProfile,
         name: 'Dr. Priya Sharma',
-        degree: 'Faculty Â· Computer Science',
+        degree: 'Faculty · Computer Science',
         career: 'Research & Teaching',
         skills: ['Research', 'Communication', 'Python'],
       },

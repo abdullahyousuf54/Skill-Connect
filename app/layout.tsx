@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   description:
     'Connect students, industry, faculty and institutions through skills, learning and meaningful opportunities.',
   metadataBase: new URL(
-    'https://skillconnect-maaz-sih-2026.docile-cod-3147.chatgpt.site',
+    'https://skillconnect-maaz-sih-2026.abdullahumar6565.chatgpt.site',
   ),
   openGraph: {
     title: 'SkillConnect',
     description: 'Build skills. Find your place.',
     images: [
       {
-        url: 'https://skillconnect-maaz-sih-2026.docile-cod-3147.chatgpt.site/og.png',
+        url: 'https://skillconnect-maaz-sih-2026.abdullahumar6565.chatgpt.site/og.png',
       },
     ],
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: 'SkillConnect',
     description: 'Build skills. Find your place.',
     images: [
-      'https://skillconnect-maaz-sih-2026.docile-cod-3147.chatgpt.site/og.png',
+      'https://skillconnect-maaz-sih-2026.abdullahumar6565.chatgpt.site/og.png',
     ],
   },
   icons: { icon: '/favicon.svg' },

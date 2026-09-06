@@ -220,7 +220,7 @@ export default function Portal() {
               </div>
               <p className="muted">
                 {o.company}
-                {o.demo ? ' Â· Demo company' : ''}
+                {o.demo ? ' · Demo company' : ''}
               </p>
               <h3>{o.title}</h3>
               <p className="row muted">
@@ -230,7 +230,7 @@ export default function Portal() {
               <p className="row muted">
                 <Clock size={12} />
                 {o.duration}
-                <span className="dot">Â·</span>
+                <span className="dot">·</span>
                 {o.pay}
               </p>
               <div className="tags">
@@ -455,7 +455,7 @@ export default function Portal() {
                   <td>
                     <strong>{o?.title || 'Opportunity'}</strong>
                     <small>
-                      {learner ? o?.company : a.name + ' Â· ' + a.role}
+                      {learner ? o?.company : a.name + ' · ' + a.role}
                     </small>
                   </td>
                   <td>{new Date(a.date).toLocaleDateString('en-IN')}</td>
@@ -562,7 +562,7 @@ export default function Portal() {
           </span>
           <div className="row">
             <span className="demo-dot" />
-            <span className="tiny muted">Private demo</span>
+            <span className="tiny muted">Public demo</span>
             <NativeSelect
               aria-label="Switch demo portal"
               value={role}
@@ -587,7 +587,7 @@ export default function Portal() {
                   : role === 'Faculty'
                     ? 'BRING INDUSTRY INTO THE CLASSROOM'
                     : role === 'Industry'
-                      ? 'CONNECT WITH TOMORROWâ€™S TALENT'
+                      ? 'CONNECT WITH TOMORROW’S TALENT'
                       : 'CONNECT LEARNING WITH OUTCOMES'}
               </p>
               <h1>
@@ -643,13 +643,13 @@ export default function Portal() {
                 aria-label="Dismiss notification"
                 onClick={() => setNotice('')}
               >
-                Ã—
+                ×
               </button>
             </div>
           )}
           {!ready && !error && (
             <p className="muted" role="status">
-              Connecting your saved workspaceâ€¦
+              Connecting your saved workspace…
             </p>
           )}
           {view === 'Overview' && (
@@ -755,7 +755,8 @@ export default function Portal() {
                   <p className="muted">
                     Use the portal switcher to try student, industry, faculty
                     and institution workflows. Example companies are fictional.
-                    Your changes are saved in your private demo.
+                    Your changes are saved in your own guest workspace. No
+                    sign-in required.
                   </p>
                 </section>
               </div>
@@ -768,7 +769,7 @@ export default function Portal() {
                   <Search size={17} />
                   <Input
                     aria-label="Search opportunities"
-                    placeholder="Search role, company, location or skillâ€¦"
+                    placeholder="Search role, company, location or skill…"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                   />
@@ -870,7 +871,7 @@ export default function Portal() {
                   </div>
                   {profile.assessment && (
                     <p className="match">
-                      Last result: {profile.assessment.score}% Â·{' '}
+                      Last result: {profile.assessment.score}% ·{' '}
                       {new Date(profile.assessment.date).toLocaleDateString(
                         'en-IN',
                       )}
@@ -893,10 +894,10 @@ export default function Portal() {
               <section className="panel mt">
                 <h3>How your match is calculated</h3>
                 <p className="muted">
-                  Matched required skills Ã· total unique required skills Ã—
-                  100. If you have HTML, CSS and JavaScript and a role also
-                  requires React, your match is 75%. This is skill
-                  compatibility, not a hiring prediction.
+                  Matched required skills ÷ total unique required skills × 100.
+                  If you have HTML, CSS and JavaScript and a role also requires
+                  React, your match is 75%. This is skill compatibility, not a
+                  hiring prediction.
                 </p>
               </section>
             </>
@@ -1002,7 +1003,7 @@ export default function Portal() {
                   <p className="eyebrow">YOUR DIGITAL PORTFOLIO</p>
                   <h2>{profile.name}</h2>
                   <p className="muted">
-                    {profile.degree} Â· {profile.institution} Â· {profile.year}
+                    {profile.degree} · {profile.institution} · {profile.year}
                   </p>
                   <p>{profile.bio}</p>
                   <div className="tags">
@@ -1085,11 +1086,11 @@ export default function Portal() {
                     <section className="panel review-row" key={o.id}>
                       <div>
                         <span className="tag">
-                          {o.type} Â· {o.audience}
+                          {o.type} · {o.audience}
                         </span>
                         <h3>{o.title}</h3>
                         <p className="muted">
-                          {o.company} Â· {o.location}
+                          {o.company} · {o.location}
                         </p>
                         <p>{o.description}</p>
                         <div className="tags">
@@ -1160,7 +1161,7 @@ export default function Portal() {
                       <section className="panel review-row" key={p.id}>
                         <div>
                           <span className="tag">
-                            {p.role} Â· {p.type}
+                            {p.role} · {p.type}
                           </span>
                           <h3>{p.title}</h3>
                           <p className="muted">{p.description}</p>
@@ -1273,10 +1274,8 @@ export default function Portal() {
             </>
           )}
           <footer>
-            <span>SkillConnect Â· Bridging academia and industry.</span>
-            <span>
-              Private SIH prototype Â· Role switching is a demo feature
-            </span>
+            <span>SkillConnect · Bridging academia and industry.</span>
+            <span>Public SIH prototype · Role switching is a demo feature</span>
           </footer>
         </main>
       </div>
@@ -1311,7 +1310,7 @@ export default function Portal() {
                 ? selected?.company
                 : modal === 'upload'
                   ? 'Resume, certificate, academic record or report. PDF, PNG or JPEG, up to 5 MB.'
-                  : 'Changes are saved in your private demo workspace.'}
+                  : 'Changes are saved in your own demo workspace.'}
           </DialogDescription>
           {error && (
             <p className="notice error" role="alert">
@@ -1329,9 +1328,9 @@ export default function Portal() {
               </div>
               <p>{selected.description}</p>
               <p className="muted">
-                {selected.location} Â· {selected.duration}
+                {selected.location} · {selected.duration}
                 <br />
-                {selected.pay} Â· Apply by {selected.deadline}
+                {selected.pay} · Apply by {selected.deadline}
               </p>
               <h3>Required skills</h3>
               <div className="tags">
@@ -1448,7 +1447,7 @@ export default function Portal() {
                 <fieldset className="question" key={q.skill}>
                   <legend>
                     <span className="tiny muted">
-                      {i + 1} / 12 Â· {q.skill}
+                      {i + 1} / 12 · {q.skill}
                     </span>
                     <br />
                     {q.q}
@@ -1473,7 +1472,7 @@ export default function Portal() {
                 type="submit"
                 disabled={busy || !ready || answers.includes(-1)}
               >
-                Finish assessment Â· {answers.filter((a) => a >= 0).length}/12
+                Finish assessment · {answers.filter((a) => a >= 0).length}/12
                 answered
               </Button>
             </form>
@@ -1622,7 +1621,7 @@ export default function Portal() {
                 />
               </label>
               <Button type="submit" disabled={busy || !ready}>
-                {busy ? 'Uploadingâ€¦' : 'Upload document'}
+                {busy ? 'Uploading…' : 'Upload document'}
               </Button>
             </form>
           )}
@@ -1641,7 +1640,7 @@ export default function Portal() {
               }}
             >
               <p>
-                <strong>{selected.name}</strong> Â· {selected.role}
+                <strong>{selected.name}</strong> · {selected.role}
               </p>
               {field('Application status', 'status', 'text', [
                 'Applied',
