@@ -10,7 +10,8 @@ async function start(cookie) {
     200,
     'Anonymous portal must load without a sign-in redirect',
   );
-  const setCookie = r.headers.get('set-cookie');
+  const setCookie =
+    r.headers.getSetCookie().find((value) => value.startsWith('skillconnect_guest=')) ?? null;
   if (!cookie || !/^skillconnect_guest=[a-f0-9]{64}$/.test(cookie)) {
     assert.match(setCookie || '', /skillconnect_guest=[a-f0-9]{64}/);
     assert.match(setCookie, /HttpOnly/);
